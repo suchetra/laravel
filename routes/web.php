@@ -26,18 +26,49 @@ use App\Http\Controllers\CartController;
 //     return "je suis dans la route produit 1";
 // });
 
-// version 1
+
+
+// VERSION CONTROLLER WITH TEMPLATE
+// version controller with template
+// Route::get('product/{n}', function($n) {
+//     return view('product-details')->with('numero', $n);
+//     // return view('article')->withNumero($n);
+// })->where('n', '[0-9]+');
+
+// Route::get('cart', function() {
+//     return view('cart');
+// });
+
+// Route::get('product', function() {
+//     return view('product-list');
+// });
+
+// Route::get('homepage', function() {
+//     return view('homepage');
+//     // return view('article')->withNumero($n);
+// });
+
+
+// VERSION CONTROLLER WITHOUT TEMPLATE
+// Route::get('cart', [CartController::class, 'cart']);
+// Route::get('product', [ProductController::class, 'listProduct']);
+// Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
+// Route::get('{n}', [ProductController::class, 'ficheProduct']);
+// Route::get('/', [HomeController::class, 'index']);
+
+
+// VERSION 1
 // Route::get('1', function() { return 'Je suis la page 1 !'; });
 // Route::get('2', function() { return 'Je suis la page 2 !'; });
 // Route::get('3', function() { return 'Je suis la page 3 !'; });
 
-// version 2
+
+// VERSION 2
 // Route::get('{n}', function($n) {
 //     return 'Je suis la page ' . $n . ' !';
 // })->where('n', '[1-3]');
 
-Route::get('cart', [CartController::class, 'cart']);
-Route::get('product', [ProductController::class, 'listProduct']);
-Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
-Route::get('{n}', [ProductController::class, 'ficheProduct']);
-Route::get('/', [HomeController::class, 'index']);
+// Route::get('article/{n}', function($n) {
+//     return view('article')->with('numero', $n);
+//     // return view('article')->withNumero($n);
+// })->where('n', '[0-9]+');
