@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function listProduct()
     {
         return ('Product');
     }
-    public function indexId($n)
+    public function ficheProduct($n)
     {
         return ('Product ' . $n);
     }

@@ -36,8 +36,8 @@ use App\Http\Controllers\CartController;
 //     return 'Je suis la page ' . $n . ' !';
 // })->where('n', '[1-3]');
 
-Route::get('cart', [CartController::class, 'index']);
-Route::get('product', [ProductController::class, 'index']);
-Route::get('product/{n}', [ProductController::class, 'indexId']);
-Route::get('{n}', [ProductController::class, 'indexId']);
+Route::get('cart', [CartController::class, 'cart']);
+Route::get('product', [ProductController::class, 'listProduct']);
+Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
+Route::get('{n}', [ProductController::class, 'ficheProduct']);
 Route::get('/', [HomeController::class, 'index']);
