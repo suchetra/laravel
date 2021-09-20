@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,18 @@ use Illuminate\Support\Facades\Route;
 //     return "je suis dans la route produit 1";
 // });
 
-Route::get('1', function() { return 'Je suis la page 1 !'; });
-Route::get('2', function() { return 'Je suis la page 2 !'; });
-Route::get('3', function() { return 'Je suis la page 3 !'; });
+// version 1
+// Route::get('1', function() { return 'Je suis la page 1 !'; });
+// Route::get('2', function() { return 'Je suis la page 2 !'; });
+// Route::get('3', function() { return 'Je suis la page 3 !'; });
+
+// version 2
+// Route::get('{n}', function($n) {
+//     return 'Je suis la page ' . $n . ' !';
+// })->where('n', '[1-3]');
+
+Route::get('cart', [CartController::class, 'index']);
+Route::get('product', [ProductController::class, 'index']);
+Route::get('product/{n}', [ProductController::class, 'indexId']);
+Route::get('{n}', [ProductController::class, 'indexId']);
+Route::get('/', [HomeController::class, 'index']);
