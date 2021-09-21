@@ -27,9 +27,23 @@ use App\Http\Controllers\CartController;
 // });
 
 
+// VERSION TEMPLATE WITH CONTROLLER 
 
-// VERSION CONTROLLER WITH TEMPLATE
-// version controller with template
+Route::get('cart', [CartController::class, 'cart']);
+
+Route::get('product', [ProductController::class, 'listProduct']);
+
+Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
+
+// Route::get('homepage', [HomeController::class, function() {
+//     return view('homepage');
+// }]);
+
+Route::get('homepage', [HomeController::class, 'index']);
+
+
+
+// VERSION TEMPLATE WITHOUT CONTROLLER 
 // Route::get('product/{n}', function($n) {
 //     return view('product-details')->with('numero', $n);
 //     // return view('article')->withNumero($n);
