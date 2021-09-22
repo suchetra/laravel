@@ -5,18 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+// use App\Product;
+
+
 
 class ProductModelController extends Controller
 {
-    
-    public function show($name){
-        $product = Product::where('name', $name)->first();
+    public function show(){
+        $trucs = Product::all();
+
+        return view('productModel', [
+            'productssss' => $trucs,
+        ]);
+    }
+    // public function show($name){
+    //     $product = Product::where('name', $name)->first();
         
         // $truc = \DB::table('products')->where('name', $name)->first();
         
         // return view('product-list');
         // // dd($truc);
-    }
+    // }
 }
 
 // CONTROLLER SIMPLE

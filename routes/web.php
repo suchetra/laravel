@@ -37,17 +37,19 @@ Route::get('product', [ProductController::class, 'listProduct']);
 
 Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
 
+Route::get('', [HomeController::class, 'index']);
 // Route::get('homepage', [HomeController::class, function() {
     //     return view('homepage');
     // }]);
     
-    Route::get('', [HomeController::class, 'index']);
     
     // Route::get('productmodel', [ProductModelController::class, 'show']);
-    Route::get('productmodel', [ProductModelController::class, function() {
-        return show($name);
-    }
-]);
+    // Route::get('productmodel', function ($name) {
+    //     return $name;
+    // });
+
+    Route::get('productmodel', [ProductModelController::class, 'show']);
+    // });     
 
 
 // VERSION TEMPLATE WITHOUT CONTROLLER 
