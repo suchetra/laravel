@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductModelController;
+use App\Http\Controllers\OrderAlphaController;
+use App\Http\Controllers\OrderPriceController;
+use App\Http\Controllers\BackofficeController;
 
 
 /*
@@ -38,18 +41,15 @@ Route::get('product', [ProductController::class, 'listProduct']);
 Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
 
 Route::get('', [HomeController::class, 'index']);
-// Route::get('homepage', [HomeController::class, function() {
-    //     return view('homepage');
-    // }]);
-    
-    
-    // Route::get('productmodel', [ProductModelController::class, 'show']);
-    // Route::get('productmodel', function ($name) {
-    //     return $name;
-    // });
 
-    Route::get('productmodel', [ProductModelController::class, 'show']);
-    // });     
+Route::get('productmodel', [ProductModelController::class, 'show']);
+Route::get('orderAlpha', [OrderAlphaController::class, 'orderAlpha']);
+Route::get('orderPrice', [OrderPriceController::class, 'orderPrice']);
+Route::get('oneProduct', [ProductController::class, 'oneProduct']);
+
+// Route::get('backoffice', [BackofficeController::class, 'add']);
+Route::get('add', [BackofficeController::class, 'add']);
+    
 
 
 // VERSION TEMPLATE WITHOUT CONTROLLER 

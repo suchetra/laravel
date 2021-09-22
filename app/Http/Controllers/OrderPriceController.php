@@ -5,27 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+// use App\Product;
 
 
-class ProductController extends Controller
+
+class OrderPriceController extends Controller
 {
-    public function listProduct()
-    {
-        return view('product-list');
-    }
-    public function ficheProduct($n)
-    {
-        return view('product-details')->with('numero', $n);    
-    }
-    public function oneProduct(){
-        $products = Product::all();
+    public function orderPrice(){
+        $products = Product::all()
+                ->sortBy('price');
 
-        return view('one-product', [
+
+        return view('product-order-price', [
             'products' => $products,
         ]);
     }
-    
-
+    // public function show($name){
+    //     $product = Product::where('name', $name)->first();
+        
+        // $truc = \DB::table('products')->where('name', $name)->first();
+        
+        // return view('product-list');
+        // // dd($truc);
+    // }
 }
 
 // CONTROLLER SIMPLE
