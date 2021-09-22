@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductModelController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,11 +38,16 @@ Route::get('product', [ProductController::class, 'listProduct']);
 Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
 
 // Route::get('homepage', [HomeController::class, function() {
-//     return view('homepage');
-// }]);
-
-Route::get('homepage', [HomeController::class, 'index']);
-
+    //     return view('homepage');
+    // }]);
+    
+    Route::get('', [HomeController::class, 'index']);
+    
+    // Route::get('productmodel', [ProductModelController::class, 'show']);
+    Route::get('productmodel', [ProductModelController::class, function() {
+        return show($name);
+    }
+]);
 
 
 // VERSION TEMPLATE WITHOUT CONTROLLER 
