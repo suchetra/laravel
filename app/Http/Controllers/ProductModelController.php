@@ -12,10 +12,10 @@ use App\Models\Product;
 class ProductModelController extends Controller
 {
     public function show(){
-        $trucs = Product::all();
+        $products = Product::all();
 
         return view('productModel', [
-            'productssss' => $trucs,
+            'products' => $products,
         ]);
     }
     // public function show($name){

@@ -1,15 +1,17 @@
 @extends('template')
 
 @section('titre')
-    Liste des produits de template
+    Liste des productModel
 @endsection
 
 @section('contenu')
 <!-- {{-- <p>TestHomepage</p> --}} -->
 
-@foreach($productssss as $product)
+@foreach($products as $product)
 <div>
-    {{ $product->name }}
+    <h3>{{ $product->name }}</h3>
+    <p>{{ $product->description }}</p>
+    <p>{{ $product->price }}</p></br>
 </div>
 @endforeach
 
