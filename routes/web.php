@@ -2,11 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductModelController;
-use App\Http\Controllers\OrderAlphaController;
-use App\Http\Controllers\OrderPriceController;
 use App\Http\Controllers\BackofficeController;
 
 
@@ -42,11 +40,11 @@ Route::get('product/{n}', [ProductController::class, 'ficheProduct']);
 
 Route::get('', [HomeController::class, 'index']);
 
-Route::get('productmodel', [ProductModelController::class, 'show']);
-Route::get('orderAlpha', [OrderAlphaController::class, 'orderAlpha']);
-Route::get('orderPrice', [OrderPriceController::class, 'orderPrice']);
+Route::get('productmodel', [ProductController::class, 'show']);
+Route::get('orderAlpha', [ProductController::class, 'orderAlpha']);
+Route::get('orderPrice', [ProductController::class, 'orderPrice']);
 
-Route::get('oneProduct/{id}', [ProductController::class, 'oneProduct']);
+Route::get('{id}', [ProductController::class, 'oneProduct']);
 
 // Route::get('backoffice', [BackofficeController::class, 'add']);
 Route::get('add', [BackofficeController::class, 'add']);

@@ -1,12 +1,19 @@
 @extends('template')
 
 @section('titre')
-    Liste des produits de template
+    Les produits
 @endsection
 
 @section('contenu')
 {{-- <p>TestHomepage</p> --}}
-<p>C'est la liste des produits grâce au template</p>
+<p>Liste des produits</p>
+@foreach($products as $product)
+<div>
+    <h3>{{ $product->name }}</h3>
+    <p>{{ $product->description }}</p>
+    <p>{{ $product->price }} €</p></br>
+</div>
+@endforeach
 @endsection
 
 {{-- route controller (bdd) vue --}}

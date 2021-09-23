@@ -11,28 +11,46 @@ class ProductController extends Controller
 {
     public function listProduct()
     {
-        return view('product-list');
+        $products = Product::all();
+        return view('product-list', [
+            'products' => $products,
+        ]);
     }
     public function ficheProduct($n)
     {
         return view('product-details')->with('numero', $n);    
     }
+    public function show(){
+        $products = Product::all();
+
+        return view('product-list', [
+            'products' => $products,
+        ]);
+    }
+    public function orderAlpha(){
+        // $products = Product::sortBy('name')->all();
+        $products = Product::orderBy('name', 'desc')->get();
+        // wrong :
+        // $products = Product::all()
+        //         ->sortBy('name');
+        return view('product-list', [
+            'products' => $products,
+        ]);
+    }
+    public function orderPrice(){
+
+        $products = Product::orderBy('price')->get();
+
+        return view('product-list', [
+            'products' => $products,
+        ]);
+    }
     public function oneProduct($id){
-        // $product = Product::select('SELECT * FROM products WHERE id="1"');
-        // return view('one-product')->with('id', $id);    
         
         // https://laravel.com/docs/8.x/eloquent#retrieving-single-models
         
         $product = Product::where('id', $id)->first();
-        return view('one-product', ['product'=>$product]);
-        // dd($product);
-        // $product = Product::first();
-
-
-
-        // return view('one-product', [
-        //     'product' => $product,
-        // ]);
+        return view('product-details', ['product'=>$product]);
     }
     
 
