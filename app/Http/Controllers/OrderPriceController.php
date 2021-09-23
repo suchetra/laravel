@@ -12,9 +12,9 @@ use App\Models\Product;
 class OrderPriceController extends Controller
 {
     public function orderPrice(){
-        $products = Product::all()
-                ->sortBy('price');
-
+        // $products = Product::all()
+        //         ->sortBy('price');
+        $products = Product::orderBy('price')->get();
 
         return view('product-order-price', [
             'products' => $products,

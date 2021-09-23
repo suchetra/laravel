@@ -12,8 +12,10 @@ use App\Models\Product;
 class OrderAlphaController extends Controller
 {
     public function orderAlpha(){
-        $products = Product::all()
-                ->sortBy('name');
+        $products = Product::orderBy('name', 'desc')->get();
+        // $products = Product::all()
+        //         ->sortBy('name');
+        // $products = Product::sortBy('name')->all();
 
 
         return view('product-order-alpha', [

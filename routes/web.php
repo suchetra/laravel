@@ -45,7 +45,8 @@ Route::get('', [HomeController::class, 'index']);
 Route::get('productmodel', [ProductModelController::class, 'show']);
 Route::get('orderAlpha', [OrderAlphaController::class, 'orderAlpha']);
 Route::get('orderPrice', [OrderPriceController::class, 'orderPrice']);
-Route::get('oneProduct', [ProductController::class, 'oneProduct']);
+
+Route::get('oneProduct/{id}', [ProductController::class, 'oneProduct']);
 
 // Route::get('backoffice', [BackofficeController::class, 'add']);
 Route::get('add', [BackofficeController::class, 'add']);

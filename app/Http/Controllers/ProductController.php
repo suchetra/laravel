@@ -17,12 +17,22 @@ class ProductController extends Controller
     {
         return view('product-details')->with('numero', $n);    
     }
-    public function oneProduct(){
-        $products = Product::all();
+    public function oneProduct($id){
+        // $product = Product::select('SELECT * FROM products WHERE id="1"');
+        // return view('one-product')->with('id', $id);    
+        
+        // https://laravel.com/docs/8.x/eloquent#retrieving-single-models
+        
+        $product = Product::where('id', $id)->first();
+        return view('one-product', ['product'=>$product]);
+        // dd($product);
+        // $product = Product::first();
 
-        return view('one-product', [
-            'products' => $products,
-        ]);
+
+
+        // return view('one-product', [
+        //     'product' => $product,
+        // ]);
     }
     
 

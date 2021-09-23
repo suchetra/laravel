@@ -9,8 +9,8 @@
 <p>Liste des produits par ordre de prix croissant</p>
 @foreach($products as $product)
 <div>
-    <h3>{{ $product->name }}</h3>
-    <p>{{ $product->description }}</p>
+    <!-- <h3>{{ $product->name }}</h3> -->
+    <!-- <p>{{ $product->description }}</p> -->
     <p>{{ $product->price }} €</p></br>
 </div>
 @endforeach
